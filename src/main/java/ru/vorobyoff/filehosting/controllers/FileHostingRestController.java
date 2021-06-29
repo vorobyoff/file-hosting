@@ -14,15 +14,15 @@ import java.io.IOException;
 import static org.springframework.http.MediaType.IMAGE_JPEG_VALUE;
 
 @RestController
-public class IndexController {
+public class FileHostingRestController {
 
     private final FileLocationService locationService;
 
-    public IndexController(final FileLocationService locationService) {
+    public FileHostingRestController(final FileLocationService locationService) {
         this.locationService = locationService;
     }
 
-    @PostMapping
+    @PostMapping(value = "/upload")
     public final Long upload(@RequestParam("file") final MultipartFile file) throws IOException {
         return locationService.save(file.getBytes(), file.getName());
     }
