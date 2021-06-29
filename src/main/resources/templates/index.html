@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Available files</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th th:text="'Book title'"></th>
+        <th th:text="'Created at'"></th>
+        <th th:text="'Last modified'"></th>
+    </tr>
+
+    <tr th:each="file : ${files}">
+        <td th:text="${file.getTitle()}"></td>
+        <td th:text="${file.getCreatedAt()}"></td>
+        <td th:text="${file.getLastModified()}"></td>
+    </tr>
+</table>
+</body>
+</html>
